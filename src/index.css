@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Helvetica Neue", Arial, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-[#022c22] text-[#ecfdf5] overflow-hidden;
+    background: radial-gradient(circle at 0% 0%, #064e3b 0%, transparent 60%),
+                radial-gradient(circle at 100% 100%, #065f46 0%, transparent 60%),
+                radial-gradient(circle at 50% 50%, #10b98111 0%, transparent 50%);
+    background-attachment: fixed;
+  }
+}
+
+.glass-panel {
+  @apply bg-[#064e3b66] backdrop-blur-[24px] border border-[#10b98133] rounded-[24px];
+}
+
+.video-hero {
+  @apply bg-[#022c2299] backdrop-blur-[16px] border border-[#10b98144] rounded-[24px] overflow-hidden;
+}
+
+.small-stream {
+  @apply bg-[#064e3b99] backdrop-blur-[12px] border border-[#10b98133] rounded-[16px] overflow-hidden;
+}

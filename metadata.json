@@ -1,0 +1,6 @@
+{
+  "name": "SOSH Nodes",
+  "description": "A tropical green themed WebRTC video conferencing app for instant meetings.",
+  "requestFramePermissions": ["camera", "microphone", "display-capture"],
+  "majorCapabilities": []
+}

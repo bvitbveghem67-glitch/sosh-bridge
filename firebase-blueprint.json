@@ -1,0 +1,78 @@
+{
+  "entities": {
+    "Call": {
+      "title": "Call",
+      "description": "A WebRTC call session between two or more peers.",
+      "type": "object",
+      "properties": {
+        "offer": {
+          "type": "object",
+          "description": "The SDP offer from the caller."
+        },
+        "answer": {
+          "type": "object",
+          "description": "The SDP answer from the receiver."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "ICECandidate": {
+      "title": "ICE Candidate",
+      "description": "An ICE candidate for WebRTC signaling.",
+      "type": "object",
+      "properties": {
+        "candidate": { "type": "string" },
+        "sdpMid": { "type": "string" },
+        "sdpMLineIndex": { "type": "number" }
+      }
+    },
+    "Room": {
+      "title": "Room",
+      "description": "A virtual room for video conferencing.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "createdBy": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "Member": {
+      "title": "Member",
+      "description": "A member in a room.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "joinedAt": { "type": "string", "format": "date-time" },
+        "isMuted": { "type": "boolean" },
+        "isVideoOff": { "type": "boolean" }
+      }
+    }
+  },
+  "firestore": {
+    "/calls/{callId}": {
+      "schema": "Call",
+      "description": "WebRTC call sessions."
+    },
+    "/calls/{callId}/offerCandidates/{candidateId}": {
+      "schema": "ICECandidate",
+      "description": "ICE candidates from the caller."
+    },
+    "/calls/{callId}/answerCandidates/{candidateId}": {
+      "schema": "ICECandidate",
+      "description": "ICE candidates from the receiver."
+    },
+    "/rooms/{roomId}": {
+      "schema": "Room",
+      "description": "Video conferencing rooms."
+    },
+    "/rooms/{roomId}/members/{memberId}": {
+      "schema": "Member",
+      "description": "Members currently in the room."
+    }
+  }
+}
